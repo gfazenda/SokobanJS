@@ -4,6 +4,8 @@
 <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="Functions.js"></script>
+
 
 <style>
 
@@ -20,8 +22,21 @@ body {
 	font-family: 'Baloo Bhaijaan', cursive;
 	align-items: center;
 	justify-content: center;
-	margin-bottom: 50px;
+	<!-- margin-bottom: 50px; -->
 	margin-top: 0;
+}
+
+#optionsHeader {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 50px;
+	background-color: #1AAF3A;
+	font-size: 16px;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+	<!-- margin-top: 0; -->
 }
 
 .container {
@@ -35,6 +50,19 @@ body {
 	line-height: 0;
 
 	<!-- background-color: blue; -->
+
+}
+
+.container2 {
+	display: flex;
+	flex-wrap: wrap;
+	border: 3px solid #778899;
+	justify-content: center;
+	width: 320px;
+	margin: auto;
+	line-height: 0;
+
+	background-color: #778899;
 
 }
 
@@ -74,10 +102,91 @@ body {
 		transition-duration: 0.4s;
 }
 
+.button2 {
+
+		background-color: red;
+		border: 1px solid green;
+		font-family: 'Roboto', sans-serif;
+		color: white;
+		text-decoration: none;
+		display: flex;
+		width: 50px;
+		height: 25px;
+		align-items: center;
+		justify-content: center;
+		font-size: 16px;
+		cursor: pointer;
+		margin: 0;
+		transition-duration: 0.4s;
+}
+
 .button:hover {
 		background-color: #006400;
-	}
+}
 
+.button2:hover {
+		background-color: #006400;
+}
+
+#points {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+	font-size: 30px;
+
+}
+
+ul {
+	list-style-type: none;
+	display: flex;
+	justify-content: center;
+}
+
+a {
+    padding: 1rem 2rem;
+}
+
+a:hover {
+	background-color: #006400;
+}
+
+#textMenu {
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+#How_to_Play {
+
+	display:none;
+	flex-wrap: wrap;
+	width: 200px;
+	background-color: blue;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+	
+}
+
+#Developers {
+
+	display:none;
+	flex-wrap: wrap;
+	width: 200px;
+	background-color: blue;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+}
+
+#About {
+
+	display:none;
+	flex-wrap: wrap;
+	width: 200px;
+	background-color: blue;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+}
 </style>
 </head>
 
@@ -86,29 +195,65 @@ body {
 	<script src="Controller.js"></script>
 	
 	<div id="titleHeader">
-	<p> Sokoban </p>
+		<p> Sokoban </p>
 	</div>
+		
+	<div id="optionsHeader">
+		<ul>
+			<li> 
+				<a onclick="showDiv(1)"> How to Play </a> 
+			</li>
+			<li> 
+				<a onclick="showDiv(2)"> Developers </a> 
+			</li>
+			<li> 
+				<a onclick="showDiv(3)"> About </a>
+			</li>
+		</ul>
+	</div>
+
 	<div ng-app="myApp" ng-controller="myCtrl" ng-init="StartMatrix()">
+		<div class="container2">
+			<div id=points>
+					<p> Points: {{points}}</p>
+			</div>
+		</div>
 		<div class="container">
 			<div class="scene" ng-repeat="x in scene track by $index">
 				<img src="Images\{{x}}.png"></img>
 			</div>
 			
 			<div id="controlPanel">
-				<p class="button" ng-click = "MovePlayer(1)"> Esquerda </p>
+				<p class="button" ng-click = "MovePlayer(1)"> Right </p>
 				
 				<div>
-					<p class="button" ng-click = "MovePlayer(3)"> Cima </p>
-					<p class="button" ng-click = "MovePlayer(2)"> Baixo </p>
+					<p class="button" ng-click = "MovePlayer(3)"> Up </p>
+					<p class="button" ng-click = "MovePlayer(2)"> Down </p>
 				</div>
-				<p class="button" ng-click = "MovePlayer(0)"> Direita </p>
+				<p class="button" ng-click = "MovePlayer(0)"> Left </p>
+				<div>
+					<p class="button2" ng-click = "ResetMatrix()"> Reset </p>
+				</div>
 			</div>
 		</div>
 	</div>
 
-	<script>
+	<div id="textMenu">
+		<div id="How_to_Play">
+			<h1> How to Play: </h1>
+			<p> Text </p>
+		</div>
 		
-	</script>
+		<div id="Developers">
+			<h1> Developers: </h1>
+			<p> Bernardo Braga & Gabriel Fazenda </p>
+		</div>
+		
+		<div id="About">
+			<h1> About: </h1>
+			<p> Game created to test Angular </p>
+		</div>
+	</div>
 
 </body>
 </html>

@@ -5,30 +5,32 @@ app.controller('myCtrl', function($scope) {
 		//1 = player
 		//2 = box
 		//3 = wall
+		//4 = target
 		$scope.columns = 10;
 		$scope.rows = 10;
 		$scope.scene = [
 		0,0,3,3,3,3,3,3,3,0,
 		3,3,3,0,0,0,0,0,3,0,
-		3,0,0,0,0,0,0,0,3,0,
-		3,3,3,0,0,0,0,0,3,0,
-		3,0,3,3,0,0,0,0,3,0,
-		3,0,3,0,0,0,0,0,3,0,
-		3,0,0,0,0,0,0,0,3,3,
-		3,0,0,0,0,0,0,0,0,3,
+		3,4,0,2,0,0,0,0,3,0,
+		3,3,3,0,2,0,0,4,3,0,
+		3,4,3,3,2,0,0,0,3,0,
+		3,0,3,0,4,0,0,0,3,0,
+		3,2,0,4,2,2,0,0,3,3,
+		3,0,0,0,4,0,0,0,4,3,
 		3,0,0,0,0,0,0,0,0,3,
 		3,3,3,3,3,3,3,3,3,3
 		];
 		
+		$scope.points = 0;
 		$scope.playerPosition = {x: 0, y:0};
 		
 		$scope.StartMatrix = function(){
-			$scope.scene[$scope.GetIndex(4,4)] = 2;
+			
+			// $scope.scene[$scope.GetIndex(4,4)] = 2;
 
 			$scope.playerPosition = {x: 2, y:2};
 			$scope.scene[$scope.GetIndex(2,2)] = 1;
 		}
-		
 		$scope.GetIndex = function(x,y){
 			return (x + y * $scope.rows);
 		}
@@ -105,11 +107,35 @@ app.controller('myCtrl', function($scope) {
 						console.log('moved box');
 						$scope.scene[$scope.GetIndex(position.x,position.y)] = 2;
 						return true;
-					}					
+					}	
+					else if($scope.scene[$scope.GetIndex(position.x,position.y)] == 4){
+						console.log('moved box');
+						$scope.scene[$scope.GetIndex(position.x,position.y)] = 2;
+						$scope.points ++;
+						return true;
+					}							
 			}
 			return false;
 		}
 		
-		
-		
+		$scope.ResetMatrix = function() {
+			
+			$scope.scene = [
+			0,0,3,3,3,3,3,3,3,0,
+			3,3,3,0,0,0,0,0,3,0,
+			3,4,0,2,0,0,0,0,3,0,
+			3,3,3,0,2,0,0,4,3,0,
+			3,4,3,3,2,0,0,0,3,0,
+			3,0,3,0,4,0,0,0,3,0,
+			3,2,0,4,2,2,0,0,3,3,
+			3,0,0,0,4,0,0,0,4,3,
+			3,0,0,0,0,0,0,0,0,3,
+			3,3,3,3,3,3,3,3,3,3
+			];
+			
+			$scope.StartMatrix();
+			$scope.points = 0;
+			console.log("reseted");
+		}
+
 });
