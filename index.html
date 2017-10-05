@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <link rel="stylesheet" type="text/css" href="pageStyle.css" media="screen"></link>
+    <script src="Functions.js"></script>
+
+</head>
+
+<body>
+
+	<script src="Controller.js"></script>
+	
+	<div id="titleHeader">
+		<p> Sokoban </p>
+	</div>
+		
+	<div id="optionsHeader">
+		<ul>
+			<li> 
+				<a href="#!/"> Home </a> 
+			</li>
+			<li> 
+				<a href="#!/HowToPlay"> How to Play </a> 
+			</li>
+			<li> 
+				<a href="#!/Developers"> Developers </a> 
+			</li>
+			<li> 
+				<a href="#!/About"> About </a>
+			</li>
+		</ul>
+    </div>
+    
+    <!-- <button ng-click="redirectPage()"> REDIRECT </button> -->
+    
+    <div ng-app="myApp">
+        <div ng-view>
+            
+        </div> 
+    </div>
+
+	
+
+	<!-- <div id="textMenu">
+		<div id="How_to_Play">
+			<h1> How to Play: </h1>
+			<p> Press the direction buttons to move and push boxes. When a box is above a red point, you win a point. The game is won when there are no more red points. </p>
+		</div>
+		
+		<div id="Developers">
+			<h1> Developers: </h1>
+			<p> Bernardo Braga & Gabriel Fazenda </p>
+		</div>
+		
+		<div id="About">
+			<h1> About: </h1>
+			<p> Game created to test Angular </p>
+		</div>
+	</div> -->
+
+</body>
+</html>
