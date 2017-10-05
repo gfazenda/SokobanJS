@@ -23,20 +23,6 @@ app.config(function($routeProvider) {
 
 app.controller('myCtrl', function($scope) {
 
-	
-	  
-	
-	//   app.controller("redirectController", function ($scope, $location) {
-		
-	// 	$scope.redirectPage = function () {
-	//         // write authentication code here.. 
-		
-	// 			$location.path('#HowToPlay');
-	// 			console.log('hm');
-	// 	};
-	//  });
-
-
 		//0 = empty
 		//1 = player
 		//2 = box
@@ -185,7 +171,7 @@ app.controller('myCtrl', function($scope) {
 			3,4,3,3,2,0,0,0,3,0,
 			3,0,3,0,4,0,0,0,3,0,
 			3,2,0,4,2,2,0,0,3,3,
-			3,0,0,0,4,0,0,0,4,3,
+			3,0,0,0,4,0,0,0,0,3,
 			3,0,0,0,0,0,0,0,0,3,
 			3,3,3,3,3,3,3,3,3,3
 			];
